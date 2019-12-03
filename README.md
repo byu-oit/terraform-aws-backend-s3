@@ -26,7 +26,7 @@ to configure your terraform backend to the newly created S3 bucket and DynamoDB 
 | Variable | Default | Description |
 | --- | --- | --- |
 | bucket_name | terraform-state-<account_number> | S3 bucket name for state file storage |
-| dynamod_table_name | terraform-state-lock-<account_number> | DynamoDB table name for state file locking|
+| dynamodb_table_name | terraform-state-lock-<account_number> | DynamoDB table name for state file locking|
 
 ## Output Variables
 * s3_bucket (S3 object)
