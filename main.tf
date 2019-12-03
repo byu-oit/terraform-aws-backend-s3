@@ -13,6 +13,18 @@ resource "aws_s3_bucket" "terraform-state-storage" {
   lifecycle {
     prevent_destroy = true
   }
+  lifecycle_rule {
+    id = "AutoAbortFailedMultipartUpload"
+    enabled = true
+    abort_incomplete_multipart_upload_days = 10
+  }
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "AES256"
+      }
+    }
+  }
 }
 
 resource "aws_s3_bucket_public_access_block" "default" {
