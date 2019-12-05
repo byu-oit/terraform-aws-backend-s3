@@ -3,8 +3,8 @@ provider "aws" {
 }
 
 module "backend-s3" {
-  source = "git@github.com/byu-oit/terraform-aws-backend-s3.git?ref=v1.0.2"
-  ref = "v1.0.2"
+  source = "git@github.com:byu-oit/terraform-aws-backend-s3.git?ref=v1.0.3"
+  ref = "v1.0.3"
 }
 
 output "s3" {
