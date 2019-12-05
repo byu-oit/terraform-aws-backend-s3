@@ -5,7 +5,7 @@ Terraform module that creates an S3 bucket and DynamoDB table for backend state 
 ```hcl
 module "backend-s3" {
   source = "github.com/byu-oit/terraform-aws-backend-s3"
-  version = "1.0.1"
+  ref = "v1.0.2"
 }
 ```
 
