@@ -4,7 +4,6 @@ provider "aws" {
 
 module "backend-s3" {
   source = "../"
-  version = "1.0.0"
 }
 
 output "s3" {

@@ -5,7 +5,7 @@ Terraform module that creates an S3 bucket and DynamoDB table for backend state 
 ```hcl
 module "backend-s3" {
   source = "github.com/byu-oit/terraform-aws-backend-s3"
-  version = "1.0.0"
+  version = "1.0.1"
 }
 ```
 
@@ -13,7 +13,7 @@ Run `terraform apply` to create the S3 bucket and DynamoDB table for storing sta
 ```hcl
 terraform {
   backend "s3" {
-    bucket = "terraform-state-<account_number>"
+    bucket = "terraform-state-storage-<account_number>"
     lock_table = "terraform-state-lock-<account_number>"
     key = "my-cool-app.tfstate"
     region = "us-west-2"
@@ -26,7 +26,7 @@ to configure your terraform backend to the newly created S3 bucket and DynamoDB 
 ## Input
 | Variable | Default | Description |
 | --- | --- | --- |
-| bucket_name | terraform-state-<account_number> | S3 bucket name for state file storage |
+| bucket_name | terraform-state-storage-<account_number> | S3 bucket name for state file storage |
 | dynamodb_table_name | terraform-state-lock-<account_number> | DynamoDB table name for state file locking|
 
 ## Output

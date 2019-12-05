@@ -1,7 +1,7 @@
 data "aws_caller_identity" "current" {}
 
 locals {
-  default_bucket_name = "terraform-state-${data.aws_caller_identity.current.account_id}"
+  default_bucket_name = "terraform-state-storage-${data.aws_caller_identity.current.account_id}"
   default_dynamodb_table_name = "terraform-state-lock-${data.aws_caller_identity.current.account_id}"
 }
 
