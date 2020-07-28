@@ -52,3 +52,9 @@ to configure your terraform backend to the newly created S3 bucket and DynamoDB 
 **Note about returning objects:** Because objects are returned (as opposed to just values), autocomplete may not work. 
 Just add on the key to the end out the output accessor. Even though autocomplete won't work, those values will still be 
 correctly returned.
+
+## Developing
+
+### Release new version
+
+To release a new version, update the examples in the `examples` folder, the example in this README, and the number in the version file. Pushing to `master` will automatically create a new release and tag in GitHub.
