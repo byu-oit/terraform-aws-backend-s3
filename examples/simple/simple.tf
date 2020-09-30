@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "backend_s3" {
-  source = "github.com/byu-oit/terraform-aws-backend-s3?ref=v1.0.4"
+  source = "github.com/byu-oit/terraform-aws-backend-s3?ref=v1.0.5"
 }
 
 output "s3" {
