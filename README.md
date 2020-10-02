@@ -26,10 +26,10 @@ Run `terraform apply` to create the S3 bucket and DynamoDB table for storing sta
 ```hcl
 terraform {
   backend "s3" {
-    bucket = "terraform-state-storage-<account_number>"
-    lock_table = "terraform-state-lock-<account_number>"
-    key = "my-cool-app.tfstate"
-    region = "us-west-2"
+    bucket          = "terraform-state-storage-<account_number>"
+    dynamodb_table  = "terraform-state-lock-<account_number>"
+    key             = "my-cool-app.tfstate"
+    region          = "us-west-2"
   }
 }
 ```
