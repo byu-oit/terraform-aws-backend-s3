@@ -8,7 +8,8 @@ This is one of the few modules that you can just run "as is" and then throw away
 ```sh
 git clone https://github.com/byu-oit/terraform-aws-backend-s3.git
 cd terraform-aws-backend-s3/examples/simple
-awslogin # log into the account that needs the Terraform State S3 Backend created
+aws sso login
+export AWS_PROFILE=my-account-profile
 terraform init
 terraform apply
 cd ../../../
