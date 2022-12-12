@@ -19,7 +19,7 @@ rm -rf terraform-aws-backend-s3
 ## Usage
 ```hcl
 module "backend-s3" {
-  source = "github.com/byu-oit/terraform-aws-backend-s3?ref=v1.1.0"
+  source = "github.com/byu-oit/terraform-aws-backend-s3?ref=v2.0.0"
 }
 ```
 
