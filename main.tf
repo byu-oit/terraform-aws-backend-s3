@@ -7,22 +7,33 @@ locals {
 
 resource "aws_s3_bucket" "terraform-state-storage" {
   bucket = var.bucket_name == "" ? local.default_bucket_name : var.bucket_name
-  versioning {
-    enabled = true
-  }
   lifecycle {
     prevent_destroy = true
   }
-  lifecycle_rule {
-    id                                     = "AutoAbortFailedMultipartUpload"
-    enabled                                = true
-    abort_incomplete_multipart_upload_days = 10
+}
+
+resource "aws_s3_bucket_versioning" "state-storage-versioning" {
+  bucket = aws_s3_bucket.terraform-state-storage.bucket
+  versioning_configuration {
+    status = "Enabled"
   }
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        sse_algorithm = "AES256"
-      }
+}
+
+resource "aws_s3_bucket_lifecycle_configuration" "state-storage-abort-failed-multipart" {
+  bucket = aws_s3_bucket.terraform-state-storage.bucket
+  rule {
+    id     = "AutoAbortFailedMultipartUpload"
+    status = "Enabled"
+    abort_incomplete_multipart_upload {
+      days_after_initiation = 10
+    }
+  }
+}
+resource "aws_s3_bucket_server_side_encryption_configuration" "state-storage-encrypted" {
+  bucket = aws_s3_bucket.terraform-state-storage.bucket
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "AES256"
     }
   }
 }
