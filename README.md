@@ -19,7 +19,7 @@ rm -rf terraform-aws-backend-s3
 ## Usage
 ```hcl
 module "backend-s3" {
-  source = "github.com/byu-oit/terraform-aws-backend-s3?ref=v1.0.5"
+  source = "github.com/byu-oit/terraform-aws-backend-s3?ref=v1.1.0"
 }
 ```
 
@@ -39,13 +39,13 @@ to configure your terraform backend to the newly created S3 bucket and DynamoDB 
 
 ## Input
 | Variable            | Default                                  | Description                                |
-| ------------------- | ---------------------------------------- | ------------------------------------------ |
+|---------------------|------------------------------------------|--------------------------------------------|
 | bucket_name         | terraform-state-storage-<account_number> | S3 bucket name for state file storage      |
 | dynamodb_table_name | terraform-state-lock-<account_number>    | DynamoDB table name for state file locking |
 
 ## Output
 | Name           | Description                                                                                                                                    |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+|----------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | s3_bucket      | S3 bucket [object](https://www.terraform.io/docs/providers/aws/r/s3_bucket.html#attributes-reference) for terraform state storage              |
 | s3_bucket_name | Bucket name of the `s3_bucket`                                                                                                                 |
 | dynamodb_table | DynamoDB Table [object](https://www.terraform.io/docs/providers/aws/r/dynamodb_table.html#attributes-reference) for locking of terraform state |
